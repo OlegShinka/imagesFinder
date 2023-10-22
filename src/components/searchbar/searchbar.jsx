@@ -24,7 +24,7 @@ export const Form = ({ onSubmitForm }) => {
           name="value"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search images"
           onChange={handleChange}
         />
         <BtnSearchBar type="submit">

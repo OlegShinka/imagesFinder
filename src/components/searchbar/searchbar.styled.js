@@ -2,7 +2,8 @@ import styled from 'styled-components';
 export const BtnSearchBar = styled.button`
   height: 38px;
   width: 88px;
-  border: 1px solid #e6dfdf;
+  border: 0.5px solid #e6dfdf;
+
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background-color: cadetblue;
   cursor: pointer;
@@ -20,7 +21,8 @@ export const InpSearch = styled.input`
   font: inherit;
   font-size: 20px;
   height: 38px;
-
+  // background-color: cadetblue;
+  opacity: 0.5;
   border: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding-left: 4px;
@@ -31,7 +33,7 @@ export const FormSearch = styled.form`
   align-items: center;
   width: 100%;
   max-width: 600px;
-  background-color: #fff;
+
   border-radius: 3px;
   overflow: hidden;
   margin: 0 auto;

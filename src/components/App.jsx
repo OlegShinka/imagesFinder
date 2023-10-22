@@ -5,10 +5,12 @@ import { Form } from './searchbar/searchbar';
 import { Loader } from './Loader/Loader';
 import { Button } from './Button/Button';
 import { Layout } from './Layuot';
+import toast, { Toaster } from 'react-hot-toast';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const App = () => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
   const [hits, setHits] = useState([]);
   const [querry, setQuerry] = useState('');
   const [page, setPage] = useState(1);
@@ -23,7 +25,7 @@ export const App = () => {
     async function getHits() {
       try {
         setLoading(true);
-        setError(false);
+        //setError(false);
         // виклик фу http-запиту з зовніш. файлу api.jsx
         const response = await FetchImages(querry, page);
 
@@ -32,7 +34,7 @@ export const App = () => {
         // по заг.кількості картинок обчис екранних стор. при per-page=12
         const totalPage = Math.ceil(totalHits / 12);
         setHits(prev => [...prev, ...response.data.hits]);
-
+        toast.success('Successfully load images!');
         // вмикаємо кнопку Load More при зміні стану
         if (page < totalPage) {
           setLoadMore(true);
@@ -40,7 +42,8 @@ export const App = () => {
           setLoadMore(false);
         }
       } catch (error) {
-        setError(true);
+        // setError(true);
+        toast.error('Reload page please ...');
       } finally {
         setLoading(false);
       }
@@ -62,9 +65,9 @@ export const App = () => {
   return (
     <Layout>
       <Form onSubmitForm={handleSearch} />
-
+      <Toaster position="top-right" reverseOrder={false} />
       {loading && <Loader />}
-      {error && <p> Reload page please ...</p>}
+      {/* {error && <p> Reload page please ...</p>} */}
       {hits.length > 0 && <ImageGallery hits={hits} />}
       {/* <ImageGallery hits={hits} /> */}
       {isLoadMore && <Button handleLoadMore={handleLoadMore} />}

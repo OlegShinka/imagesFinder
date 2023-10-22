@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 export const BtnLoadMore = styled.button`
   padding: 8px 16px;
-  border-radius: 2px;
+  border-radius: 8px;
   background-color: cadetblue;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-align: center;
   display: inline-block;
   color: black;
-  border: 0;
+  border: none;
   text-decoration: none;
   cursor: pointer;
   font-family: inherit;

@@ -11,7 +11,7 @@ const customStyles = {
     backgroundColor: '#c0c0c0',
   },
   overlay: {
-    backgroundColor: 'grey',
+    backgroundColor: 'cadetblue',
   },
 };
 Modal.setAppElement('#root');
